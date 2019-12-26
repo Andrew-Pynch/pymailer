@@ -20,9 +20,20 @@ def get_message():
             message_lines.append(message)
             continue
 
-    sentence = ' '.join(word[0] for word in message_lines)
-    return sentence
+    return message_lines
 
-#get_address()
-#get_subject()
-print(get_message())
+
+def print_message(target_address, subject, message_lines):
+    print('To: %s \nSubject: %s' % (target_address, subject))
+    print('Message:')
+    for i in range(len(message_lines)):
+        print(message_lines[i] + '\n')
+        
+
+def main():
+    target_address = get_address()
+    subject = get_subject()
+    message = get_message()
+    print_message(target_address, subject, message)
+
+main()
